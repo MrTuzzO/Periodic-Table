@@ -1,0 +1,801 @@
+:root {
+    --cell-primary-clr: rgba(57, 173, 100);
+    --cell-nm-clr: rgba(252, 211, 3);
+    --cell-m-clr: rgba(199, 82, 175);
+    --cell-dm-clr: rgba(5, 179, 237);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.periodic_table {
+    max-width: 1620px;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: Arial;
+    position: relative;
+}
+/* table styling start */
+.table_holder {
+    max-height: 100vh;
+}
+.table_info{
+    position: absolute;
+    border: 1px solid #ddd;
+    text-align: center;
+    left: 50%;
+    padding: 3px;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    background: #ddd;
+    max-width: 500px;
+    width: 15vw;
+}
+.table_info h2 {
+    color: #fff;
+    font-size: 1.1vw;
+    padding: 5px;
+    font-weight: normal;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .8);
+}
+.table_info .metal{
+    background-color: var(--cell-m-clr);
+}
+.table_info .n_metal {
+    background-color: var(--cell-nm-clr);
+}
+.table_info .transitional_metal {
+    background-color: var(--cell-dm-clr);
+}
+.table_info .inner_transitional_metal {
+    background-color: var(--cell-primary-clr);
+}
+
+/* cell styling start */
+.cell {
+    background-color: var(--cell-primary-clr);
+    min-width: 5%;
+    padding: 5px;
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .8);
+}
+.cell .che_symbol,
+.cell .name {
+    text-align: center;
+}
+
+.cell .atomic_number {
+    font-size: 1.1vw;
+}
+
+.cell .atomic_number .atomic_mass {
+    font-size: .9vw;
+    float: right;
+}
+
+.cell .che_symbol {
+    font-size: 1.7vw;
+
+}
+
+.cell .name {
+    font-size: 0.9vw;
+}
+/* cell styling end */
+/* cell hover effect start */
+.cell:hover {
+    transform: scale(1.7);
+    border-radius: 2px;
+    z-index: 9;
+}
+
+.c-119:hover {
+    transform: scale(1.0);
+}
+
+.c-120:hover {
+    transform: scale(1.0);
+}
+
+/* cell hover effect end */
+/* table layout */
+.table_holder {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-areas:
+        "c-1 . . . . . . . . . . . . . . . . c-2"
+        "c-3 c-4 . . . . . . . . . . c-5 c-6 c-7 c-8 c-9 c-10"
+        "c-11 c-12 . . . . . . . . . . c-13 c-14 c-15 c-16 c-17 c-18"
+        "c-19 c-20 c-21 c-22 c-23 c-24 c-25 c-26 c-27 c-28 c-29 c-30 c-31 c-32 c-33 c-34 c-35 c-36"
+        "c-37 c-38 c-39 c-40 c-41 c-42 c-43 c-44 c-45 c-46 c-47 c-48 c-49 c-50 c-51 c-52 c-53 c-54"
+        "c-55 c-56 c-121 c-72 c-73 c-74 c-75 c-76 c-77 c-78 c-79 c-80 c-81 c-82 c-83 c-84 c-85 c-86"
+        "c-87 c-88 c-122 c-104 c-105 c-106 c-107 c-108 c-109 c-110 c-111 c-112 c-113 c-114 c-115 c-116 c-117 c-118"
+        "c-119 c-119 c-119 c-57 c-58 c-59 c-60 c-61 c-62 c-63 c-64 c-65 c-66 c-67 c-68 c-69 c-70 c-71"
+        "c-120 c-120 c-120 c-89 c-90 c-91 c-92 c-93 c-94 c-95 c-96 c-97 c-98 c-99 c-100 c-101 c-102 c-103"
+    ;
+}
+/* table layout */
+/* layout colors */
+.table_holder>.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(5),
+.cell:nth-child(6),
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9),
+.cell:nth-child(10),
+.cell:nth-child(14),
+.cell:nth-child(15),
+.cell:nth-child(16),
+.cell:nth-child(17),
+.cell:nth-child(18),
+.cell:nth-child(33),
+.cell:nth-child(34),
+.cell:nth-child(35),
+.cell:nth-child(36),
+.cell:nth-child(52),
+.cell:nth-child(53),
+.cell:nth-child(54),
+.cell:nth-child(85),
+.cell:nth-child(86),
+.cell:nth-child(117),
+.cell:nth-child(118) {
+    background: var(--cell-nm-clr)
+}
+
+.table_holder>.cell:nth-child(3),
+.cell:nth-child(4),
+.cell:nth-child(11),
+.cell:nth-child(12),
+.cell:nth-child(19),
+.cell:nth-child(20),
+.cell:nth-child(37),
+.cell:nth-child(38),
+.cell:nth-child(55),
+.cell:nth-child(56),
+.cell:nth-child(87),
+.cell:nth-child(88),
+.cell:nth-child(13),
+.cell:nth-child(31),
+.cell:nth-child(32),
+.cell:nth-child(49),
+.cell:nth-child(50),
+.cell:nth-child(51),
+.cell:nth-child(81),
+.cell:nth-child(82),
+.cell:nth-child(83),
+.cell:nth-child(84),
+.cell:nth-child(113),
+.cell:nth-child(114),
+.cell:nth-child(115),
+.cell:nth-child(116) {
+    background: var(--cell-m-clr)
+}
+
+.table_holder>.cell:nth-child(21),
+.cell:nth-child(22),
+.cell:nth-child(23),
+.cell:nth-child(24),
+.cell:nth-child(25),
+.cell:nth-child(26),
+.cell:nth-child(27),
+.cell:nth-child(28),
+.cell:nth-child(29),
+.cell:nth-child(30),
+.cell:nth-child(39),
+.cell:nth-child(40),
+.cell:nth-child(41),
+.cell:nth-child(42),
+.cell:nth-child(43),
+.cell:nth-child(44),
+.cell:nth-child(45),
+.cell:nth-child(46),
+.cell:nth-child(47),
+.cell:nth-child(48),
+.cell:nth-child(72),
+.cell:nth-child(73),
+.cell:nth-child(74),
+.cell:nth-child(75),
+.cell:nth-child(76),
+.cell:nth-child(77),
+.cell:nth-child(78),
+.cell:nth-child(79),
+.cell:nth-child(80),
+.cell:nth-child(104),
+.cell:nth-child(105),
+.cell:nth-child(106),
+.cell:nth-child(107),
+.cell:nth-child(108),
+.cell:nth-child(109),
+.cell:nth-child(110),
+.cell:nth-child(111),
+.cell:nth-child(112),
+.cell:nth-child(47),
+.cell:nth-child(48) {
+    background: var(--cell-dm-clr)
+}
+
+/* layout colors end*/
+/* grid areas */
+.c-1 {
+    grid-area: c-1
+}
+
+.c-2 {
+    grid-area: c-2
+}
+
+.c-3 {
+    grid-area: c-3
+}
+
+.c-4 {
+    grid-area: c-4
+}
+
+.c-5 {
+    grid-area: c-5
+}
+
+.c-6 {
+    grid-area: c-6
+}
+
+.c-7 {
+    grid-area: c-7
+}
+
+.c-8 {
+    grid-area: c-8
+}
+
+.c-9 {
+    grid-area: c-9
+}
+
+.c-10 {
+    grid-area: c-10
+}
+
+.c-11 {
+    grid-area: c-11
+}
+
+.c-12 {
+    grid-area: c-12
+}
+
+.c-13 {
+    grid-area: c-13
+}
+
+.c-14 {
+    grid-area: c-14
+}
+
+.c-15 {
+    grid-area: c-15
+}
+
+.c-16 {
+    grid-area: c-16
+}
+
+.c-17 {
+    grid-area: c-17
+}
+
+.c-18 {
+    grid-area: c-18
+}
+
+.c-19 {
+    grid-area: c-19
+}
+
+.c-20 {
+    grid-area: c-20
+}
+
+.c-21 {
+    grid-area: c-21
+}
+
+.c-22 {
+    grid-area: c-22
+}
+
+.c-23 {
+    grid-area: c-23
+}
+
+.c-24 {
+    grid-area: c-24
+}
+
+.c-25 {
+    grid-area: c-25
+}
+
+.c-26 {
+    grid-area: c-26
+}
+
+.c-27 {
+    grid-area: c-27
+}
+
+.c-28 {
+    grid-area: c-28
+}
+
+.c-29 {
+    grid-area: c-29
+}
+
+.c-30 {
+    grid-area: c-30
+}
+
+.c-31 {
+    grid-area: c-31
+}
+
+.c-32 {
+    grid-area: c-32
+}
+
+.c-33 {
+    grid-area: c-33
+}
+
+.c-34 {
+    grid-area: c-34
+}
+
+.c-35 {
+    grid-area: c-35
+}
+
+.c-36 {
+    grid-area: c-36
+}
+
+.c-37 {
+    grid-area: c-37
+}
+
+.c-38 {
+    grid-area: c-38
+}
+
+.c-39 {
+    grid-area: c-39
+}
+
+.c-40 {
+    grid-area: c-40
+}
+
+.c-41 {
+    grid-area: c-41
+}
+
+.c-42 {
+    grid-area: c-42
+}
+
+.c-43 {
+    grid-area: c-43
+}
+
+.c-44 {
+    grid-area: c-44
+}
+
+.c-45 {
+    grid-area: c-45
+}
+
+.c-46 {
+    grid-area: c-46
+}
+
+.c-47 {
+    grid-area: c-47
+}
+
+.c-48 {
+    grid-area: c-48
+}
+
+.c-49 {
+    grid-area: c-49
+}
+
+.c-50 {
+    grid-area: c-50
+}
+
+.c-51 {
+    grid-area: c-51
+}
+
+.c-52 {
+    grid-area: c-52
+}
+
+.c-53 {
+    grid-area: c-53
+}
+
+.c-54 {
+    grid-area: c-54
+}
+
+.c-55 {
+    grid-area: c-55
+}
+
+.c-56 {
+    grid-area: c-56
+}
+
+.c-57 {
+    grid-area: c-57
+}
+
+.c-58 {
+    grid-area: c-58
+}
+
+.c-59 {
+    grid-area: c-59
+}
+
+.c-60 {
+    grid-area: c-60
+}
+
+.c-61 {
+    grid-area: c-61
+}
+
+.c-62 {
+    grid-area: c-62
+}
+
+.c-63 {
+    grid-area: c-63
+}
+
+.c-64 {
+    grid-area: c-64
+}
+
+.c-65 {
+    grid-area: c-65
+}
+
+.c-66 {
+    grid-area: c-66
+}
+
+.c-67 {
+    grid-area: c-67
+}
+
+.c-68 {
+    grid-area: c-68
+}
+
+.c-69 {
+    grid-area: c-69
+}
+
+.c-70 {
+    grid-area: c-70
+}
+
+.c-71 {
+    grid-area: c-71
+}
+
+.c-72 {
+    grid-area: c-72
+}
+
+.c-73 {
+    grid-area: c-73
+}
+
+.c-74 {
+    grid-area: c-74
+}
+
+.c-75 {
+    grid-area: c-75
+}
+
+.c-76 {
+    grid-area: c-76
+}
+
+.c-77 {
+    grid-area: c-77
+}
+
+.c-78 {
+    grid-area: c-78
+}
+
+.c-79 {
+    grid-area: c-79
+}
+
+.c-80 {
+    grid-area: c-80
+}
+
+.c-81 {
+    grid-area: c-81
+}
+
+.c-82 {
+    grid-area: c-82
+}
+
+.c-83 {
+    grid-area: c-83
+}
+
+.c-84 {
+    grid-area: c-84
+}
+
+.c-85 {
+    grid-area: c-85
+}
+
+.c-86 {
+    grid-area: c-86
+}
+
+.c-87 {
+    grid-area: c-87
+}
+
+.c-88 {
+    grid-area: c-88
+}
+
+.c-89 {
+    grid-area: c-89
+}
+
+.c-90 {
+    grid-area: c-90
+}
+
+.c-91 {
+    grid-area: c-91
+}
+
+.c-92 {
+    grid-area: c-92
+}
+
+.c-93 {
+    grid-area: c-93
+}
+
+.c-94 {
+    grid-area: c-94
+}
+
+.c-95 {
+    grid-area: c-95
+}
+
+.c-96 {
+    grid-area: c-96
+}
+
+.c-97 {
+    grid-area: c-97
+}
+
+.c-98 {
+    grid-area: c-98
+}
+
+.c-99 {
+    grid-area: c-99
+}
+
+.c-100 {
+    grid-area: c-100
+}
+
+.c-101 {
+    grid-area: c-101
+}
+
+.c-102 {
+    grid-area: c-102
+}
+
+.c-103 {
+    grid-area: c-103
+}
+
+.c-104 {
+    grid-area: c-104
+}
+
+.c-105 {
+    grid-area: c-105
+}
+
+.c-106 {
+    grid-area: c-106
+}
+
+.c-107 {
+    grid-area: c-107
+}
+
+.c-108 {
+    grid-area: c-108
+}
+
+.c-109 {
+    grid-area: c-109
+}
+
+.c-110 {
+    grid-area: c-110
+}
+
+.c-111 {
+    grid-area: c-111
+}
+
+.c-112 {
+    grid-area: c-112
+}
+
+.c-113 {
+    grid-area: c-113
+}
+
+.c-114 {
+    grid-area: c-114
+}
+
+.c-116 {
+    grid-area: c-116
+}
+
+.c-115 {
+    grid-area: c-115
+}
+
+.c-116 {
+    grid-area: c-116
+}
+
+.c-117 {
+    grid-area: c-117
+}
+
+.c-118 {
+    grid-area: c-118
+}
+
+.c-119 {
+    grid-area: c-119
+}
+
+.c-120 {
+    grid-area: c-120
+}
+
+.c-121 {
+    grid-area: c-121
+}
+
+.c-122 {
+    grid-area: c-122
+}
+/* grid area end */
+/* responsive design start */
+@media(min-width: 1500px) {
+    .cell {
+        line-height: 23px;
+    }
+}
+
+@media(max-width: 900px) {
+    .periodic_table {
+        padding: 25px;
+    }
+
+    .cell:hover {
+        transform: scale(2);
+    }
+
+    .c-119:hover {
+        transform: scale(1.0);
+    }
+
+    .c-120:hover {
+        transform: scale(1.0);
+    }
+}
+
+@media(max-width: 860px) {
+    .cell:hover {
+        transform: scale(2.6);
+    }
+
+    .c-119:hover {
+        transform: scale(1.0);
+    }
+
+    .c-120:hover {
+        transform: scale(1.0);
+    }
+
+    .c-121:hover {
+        transform: scale(1.0);
+    }
+
+    .c-122:hover {
+        transform: scale(1.0);
+    }
+
+    .cell .atomic_number .atomic_mass {
+        display: none;
+    }
+
+    .cell .name {
+        display: none;
+    }
+
+}
+
+@media(max-width: 640px) {
+    .periodic_table {
+        padding: 25px;
+    }
+}
+
+@media(max-width: 500px) {
+    .table_info {
+        display: none;
+    }
+
+    .periodic_table {
+        padding: 20px;
+    }
+
+    .cell:hover {
+        transform: scale(3);
+    }
+}
+
+@media(max-width: 360px) {
+    .cell .atomic_number {
+        display: none;
+    }
+
+}
+
+/* responsive design end */
